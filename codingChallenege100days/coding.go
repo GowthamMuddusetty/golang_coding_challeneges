@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+// 1.  Given a signed 32-bit integer x, return x with its digits reversed.
+// If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0."
 func Reverse(x int) int {
 	reversed := 0
 	sign := 1
@@ -28,7 +30,7 @@ func Reverse(x int) int {
 func Challenge1() {
 	for i := 1; i <= 100; i++ {
 		if i%3 == 0 {
-			fmt.Print("Fizz",",")
+			fmt.Print("Fizz", ",")
 		} else if i%5 == 0 {
 			fmt.Print("Buzz")
 		} else if i%3 == 0 && i%5 == 0 {
