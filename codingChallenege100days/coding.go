@@ -6,11 +6,7 @@ import (
 )
 
 // 1.  Given a signed 32-bit integer x, return x with its digits reversed.
-<<<<<<< Updated upstream
 // If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0."
-=======
-// If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.")
->>>>>>> Stashed changes
 func Reverse(x int) int {
 	reversed := 0
 	sign := 1
