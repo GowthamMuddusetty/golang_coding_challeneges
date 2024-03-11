@@ -1,6 +1,7 @@
 package main
 
 import (
+	linkedin "codingQuestions/LinkedinCodingQs"
 	code "codingQuestions/codingChallenege100days"
 	"fmt"
 )
@@ -30,4 +31,25 @@ func main() {
 	} else {
 		fmt.Println("Is Not Palindrome")
 	}
+
+	// 6. Fibanocci Numbers
+	code.FibanocciNumbers(10)
+
+	// 7. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+	// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+	// you can return the answer in any order.
+	nums := []int{2, 11, 7, 15}
+	//nums := []int{21, 11, 17, 15}
+	indexes := code.TwoSums(nums, 9)
+	fmt.Println(indexes)
+
+	// Linkedin Questions
+
+	// 1. Problem: Generating 4-digit random number
+	linkedin.GenRandom4Digit()
+
+	// 2. Problem: Identify the count of a letter in the sentence
+	occurences := linkedin.CountLetterOccurence("Gods and Heroes")
+	fmt.Println(occurences)
+
 }
