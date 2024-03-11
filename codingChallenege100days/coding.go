@@ -95,3 +95,50 @@ func PalindromeCheck(str string) bool {
 	}
 	return true
 }
+
+// 6. Fibanocci Numbers
+func FibanocciNumbers(num int) {
+
+	// 1 way
+	// fib := make([]int, num)
+	// fib[0] = 0
+	// fib[1] = 1
+
+	// for i := 2; i < num; i++ {
+	// 	fib[i] = fib[i-1] + fib[i-2]
+	// }
+	// return fib
+
+	// 2nd way
+	num1 := 0
+	num2 := 1
+	num3 := 0
+	fmt.Print(num1, num2, " ")
+
+	for i := 2; i < num; i++ {
+		num3 = num1 + num2
+		num1 = num2
+		num2 = num3
+		fmt.Print(num3, " ")
+	}
+}
+
+// 7. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+// you can return the answer in any order.
+func TwoSums(nums []int, target int) []int {
+	numsMap := make(map[int]interface{})
+
+	for i := 0; i < len(nums); i++ {
+		reqNum := target - nums[i]
+		reqNumIdx, isPresent := numsMap[reqNum]
+
+		if isPresent {
+			return []int{i, reqNumIdx.(int)}
+		}
+		numsMap[nums[i]] = i
+
+	}
+	// if it doesnt found any such pair it will return this numbers
+	return []int{322, 232}
+}
