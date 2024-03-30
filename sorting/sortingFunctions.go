@@ -2,6 +2,7 @@ package main
 
 import (
 	"cmp"
+	linkedin "codingQuestions/LinkedinCodingQs"
 	"fmt"
 	"slices"
 )
@@ -23,11 +24,12 @@ func main() {
 		{name: "Gowtham", age: 23},
 		{name: "Jagadeesh", age: 32},
 	}
-	slices.SortFunc(people,func(a,b Person)int {
-		return cmp.Compare(a.age,b.age)
+	slices.SortFunc(people, func(a, b Person) int {
+		return cmp.Compare(a.age, b.age)
 	})
 	fmt.Println(people)
 
-	
+	map1 := linkedin.CountLetterOccurence("Hello")
+	fmt.Println(map1)
 
 }
