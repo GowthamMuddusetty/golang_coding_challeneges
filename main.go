@@ -9,4 +9,6 @@ func main() {
 	linkedin.Highest_Num()
 	linkedin.Char_Count()
 	linkedin.Extract_Char()
+	linkedin.RemDup()
+	linkedin.FirstLet()
 }

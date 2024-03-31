@@ -3,14 +3,13 @@ package linkedin
 import (
 	"fmt"
 	"math/rand"
+	"slices"
 	"strconv"
 	"strings"
 	"time"
 )
 
-/*
-1. Problem: Generating 4-digit random number
-*/
+/* 1. Problem: Generating 4-digit random number */
 func GenRandom4Digit() {
 	rand.Seed(time.Now().UnixNano())
 	min := 1000
@@ -21,9 +20,7 @@ func GenRandom4Digit() {
 	}
 }
 
-/*
-2. Problem: Identify the count of a letter in the sentence
-*/
+/* 2. Problem: Identify the count of a letter in the sentence */
 func CountLetterOccurence(str string) string {
 	runes := []rune(strings.ToLower(str))
 	strMap := make(map[string]int)
@@ -141,3 +138,53 @@ func Extract_Char() {
 		fmt.Println(string(runes[i]))
 	}
 }
+
+/* 9. Problem: Program to remove duplicates from a given array. */
+func RemDup() {
+	var nums = [7]int{2, 3, 5, 5, 8, 2, 3}
+	var dup = []int{}
+	for i := 0; i < len(nums); i++ {
+		if !slices.Contains(dup, nums[i]) {
+			dup = append(dup, nums[i])
+		}
+	}
+	fmt.Println(dup)
+}
+
+/* 10. Problem: First letter of each word present in String. */
+func FirstLet() {
+	str := "It's not the load that breaks you down, it's the way you carry it."
+	words := strings.Fields(str)
+	var arrStr []string
+	for _, word := range words {
+		chrs := string(word[0])
+		arrStr = append(arrStr, chrs)
+	}
+	fmt.Println(strings.Join(arrStr, ","))
+}
+
+/* 11. Problem: Fibonacci Series using Arrays. */
+
+/* 12. Problem: Program to return a new Array after removing first and last elements of an Array. */
+
+/* 13. Problem: // Minimum and Maximum element in an Array using sort method. */
+
+/* 14. Problem: Fibonacci Series using HashMap.*/
+
+/* 15. Problem: Sorting of an Array. */
+
+/* 16. Problem: Program to find non-repetitive characters in a string. */
+
+/* 17. Problem: Program to find non-repetitive characters in a string using HashMap. */
+
+/* 18. Problem: Given an array of integers, find the indices of two numbers that add up to a specific target. Assume each input has exactly one solution, and the same element cannot be used twice. */
+
+/* 19. Problem: Program to convert the first and last letter of each word in a string to uppercase. */
+
+/* 20. Problem: Return the maximum profit by choosing a single day to buy and a different day in the future to sell. */
+
+/* 21. Problem: Check if the input is a palindrome. */
+
+/* 22. Problem: Java Program to Expand a String with Character Counts. */
+
+/* 23. Problem: Java Program to Expand a String. */
