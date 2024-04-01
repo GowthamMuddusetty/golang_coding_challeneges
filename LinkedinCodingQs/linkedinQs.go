@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"slices"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -164,10 +165,44 @@ func FirstLet() {
 }
 
 /* 11. Problem: Fibonacci Series using Arrays. */
+func FibSeries() {
+	num := 10
+	fibSer := make([]int, num)
+	fibSer[0] = 0
+	fibSer[1] = 1
+	for i := 2; i < num; i++ {
+		sum := fibSer[i-2] + fibSer[i-1]
+		fibSer[i] = sum
+	}
+	fmt.Println(fibSer)
+}
 
 /* 12. Problem: Program to return a new Array after removing first and last elements of an Array. */
+func RFL() {
+	nums := []int{11, 12, 13, 14, 15, 16}
+	nList := make([]int, 0)
+	for i, num := range nums {
+		fmt.Println(i, "==", num)
+		if i != 0 && i != len(nums)-1 {
+			nList = append(nList, num)
+		}
+	}
+	fmt.Println(nList)
+}
 
 /* 13. Problem: // Minimum and Maximum element in an Array using sort method. */
+func MinMax() {
+	nums := []int{7, 11, 6, 55, 98, 45, 16, 96, 46}
+	sort.Ints(nums)
+	fmt.Println(nums)
+	for i,num := range nums {
+		if i == 0 {
+			fmt.Println("Min Num:",num)
+		}else if i==len(nums)-1{
+			fmt.Println("Max Num:",num)
+		}
+	}
+}
 
 /* 14. Problem: Fibonacci Series using HashMap.*/
 

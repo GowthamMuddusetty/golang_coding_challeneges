@@ -11,4 +11,7 @@ func main() {
 	linkedin.Extract_Char()
 	linkedin.RemDup()
 	linkedin.FirstLet()
+	linkedin.FibSeries()
+	linkedin.RFL()
+	linkedin.MinMax()
 }
