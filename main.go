@@ -2,6 +2,7 @@ package main
 
 import (
 	linkedin "codingQuestions/LinkedinCodingQs"
+	mutex "codingQuestions/MutexEx"
 )
 
 func main() {
@@ -14,4 +15,7 @@ func main() {
 	linkedin.FibSeries()
 	linkedin.RFL()
 	linkedin.MinMax()
+
+	// MUTEX
+	mutex.MutexEx()
 }

@@ -195,11 +195,11 @@ func MinMax() {
 	nums := []int{7, 11, 6, 55, 98, 45, 16, 96, 46}
 	sort.Ints(nums)
 	fmt.Println(nums)
-	for i,num := range nums {
+	for i, num := range nums {
 		if i == 0 {
-			fmt.Println("Min Num:",num)
-		}else if i==len(nums)-1{
-			fmt.Println("Max Num:",num)
+			fmt.Println("Min Num:", num)
+		} else if i == len(nums)-1 {
+			fmt.Println("Max Num:", num)
 		}
 	}
 }
