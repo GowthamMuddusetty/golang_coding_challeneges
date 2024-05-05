@@ -308,16 +308,18 @@ func NonRepetetiveCharsUsingMap() {
 
 /* 18. Problem: Given an array of integers, find the indices of two numbers that add up to a specific target. Assume each input has exactly one solution, and the same element cannot be used twice. */
 func IndicesOfSumOf2Nums() {
-	nums := []int{7, 11, 6, 55, 98, 45, 16, 96, 46, 7}
+	nums := []int{7, 11, 6, 55, 98, 45, 16, 96, 46, 7, 0}
 	nonRepNums := make([]int, len(nums))
 	targetSum := 22
 
 	for i, num := range nums {
-		for j := 0; j < len(nonRepNums); j++ {
-			if num == nonRepNums[j] {
-				break
-			} else {
-				nonRepNums[i] = num
+		if num != 0 {
+			for j := 0; j < len(nonRepNums); j++ {
+				if num == nonRepNums[j] {
+					break
+				} else {
+					nonRepNums[i] = num
+				}
 			}
 		}
 	}
@@ -329,16 +331,19 @@ func IndicesOfSumOf2Nums() {
 		}
 	}
 
+	slices.Sort(filteredNums)
 	indices := make([]int, 0)
 	for _, num := range filteredNums {
 		diff := targetSum - num
 		for i := 0; i < len(filteredNums); i++ {
-			if diff == filteredNums[i] {
+			if diff == filteredNums[i] && num != diff {
 				indices = append(indices, i)
 			}
 		}
 	}
 
+	slices.Sort(indices)
+	fmt.Println(indices)
 	fmt.Println("---------------------------------------------------------------------")
 }
 
