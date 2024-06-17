@@ -1,9 +1,9 @@
 package main
 
 import (
-	enumex "codingQuestions/EnumEx"
-	linkedin "codingQuestions/LinkedinCodingQs"
-	mutex "codingQuestions/MutexEx"
+	enumex "codingQuestions/enumEx"
+	linkedin "codingQuestions/linkedinCodingQs"
+	mutex "codingQuestions/mutexEx"
 )
 
 func main() {
@@ -19,10 +19,12 @@ func main() {
 	// linkedin.MinMax()
 	// linkedin.FibMap()
 	// linkedin.ArrSort()
-	linkedin.NonRepetetiveChars()
-	linkedin.NonRepetetiveCharsUsingMap()
-	linkedin.IndicesOfSumOf2Nums()
-
+	// linkedin.NonRepetetiveChars()
+	// linkedin.NonRepetetiveCharsUsingMap()
+	// linkedin.IndicesOfSumOf2Nums()
+	// linkedin.FirstLastLetterUpperCase()
+	// linkedin.CalculateMaxProfit()
+	linkedin.CheckPalindrome()
 	// MUTEX
 	mutex.MutexEx()
 

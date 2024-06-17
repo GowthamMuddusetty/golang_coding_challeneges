@@ -23,6 +23,7 @@ const (
 	Saturday
 )
 
+
 func (w Weekday) String() string {
 	return [...]string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}[w-1]
 }

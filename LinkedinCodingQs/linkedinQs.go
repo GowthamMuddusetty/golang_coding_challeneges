@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"unicode"
 )
 
 /* 1. Problem: Generating 4-digit random number */
@@ -348,10 +349,152 @@ func IndicesOfSumOf2Nums() {
 }
 
 /* 19. Problem: Program to convert the first and last letter of each word in a string to uppercase. */
+func FirstLastLetterUpperCase() {
+	str := "success is a not final, failure is not fatal: it is the courage to continue that counts."
+
+	words := strings.Split(str, " ")
+	for i, word := range words {
+		runes := []rune(word)
+		firstRune := unicode.ToUpper(runes[0])
+		lastRune := unicode.ToUpper(runes[len(word)-1])
+		runes[0] = firstRune
+		wordLen := len(runes)
+		if wordLen == 1 {
+			fmt.Println(string(runes))
+			words[i] = string(unicode.ToUpper(runes[0]))
+		}
+		if !unicode.IsLetter(runes[len(word)-1]) {
+			lastRune = unicode.ToUpper(runes[len(word)-2])
+			runes[len(word)-2] = lastRune
+			alteredWords := string(runes)
+			words[i] = alteredWords
+		} else {
+			runes[len(word)-1] = lastRune
+			alteredWords := string(runes)
+			words[i] = alteredWords
+		}
+	}
+	fmt.Println(strings.Join(words, " "))
+}
 
 /* 20. Problem: Return the maximum profit by choosing a single day to buy and a different day in the future to sell. */
+func CalculateMaxProfit() {
+	prices := []int{7, 5, 2, 3, 6, 4, 1}
+
+	profitCalFunc := func([]int) int {
+		if len(prices) <= 1 {
+			return 0
+		}
+
+		minPrice := prices[0]
+		maxProfit := 0
+
+		for i := 1; i < len(prices); i++ {
+			if prices[i] < minPrice {
+				minPrice = prices[i]
+			} else {
+				profit := prices[i] - minPrice
+				if profit > maxProfit {
+					maxProfit = profit
+				}
+			}
+		}
+		return maxProfit
+	}
+
+	profit := profitCalFunc(prices)
+	if profit > 0 {
+		fmt.Println("Profit Earned:", profit)
+	} else {
+		fmt.Println("No Profit Earned")
+	}
+}
 
 /* 21. Problem: Check if the input is a palindrome. */
+func CheckPalindrome() {
+	fmt.Println("Enter input :")
+	var input string
+	fmt.Scan(&input)
+	isInt := func(s string) bool {
+		for _, c := range s {
+			if !unicode.IsDigit(c) {
+				return false
+			}
+		}
+		return true
+	}
+
+	reverseFunc := func(strs []interface{}) chan interface{} {
+		ret := make(chan interface{})
+		go func() {
+			for i, _ := range strs {
+				ret <- strs[len(strs)-1-i]
+			}
+			close(ret)
+		}()
+		return ret
+	}
+
+	checkIntPalindrome := func(num int) bool {
+		isTrue := false
+		if num <= 0 {
+			fmt.Println("Enter valid number greater than 0: ", num)
+		} else {
+			expectedNum := num
+			actualNum := 0
+
+			for num != 0 {
+				n := num % 10
+				actualNum = actualNum*10 + n
+				num = num / 10
+			}
+
+			if expectedNum == actualNum {
+				isTrue = true
+			}
+		}
+		return isTrue
+	}
+
+	checkStringPalindrome := func(str string) bool {
+		actualStr := str
+		expectedStr := ""
+		isTrue := false
+		var arrStr []interface{}
+		for _, c := range input {
+			arrStr = append(arrStr, string(c))
+		}
+		ch := reverseFunc(arrStr)
+		revStr := make([]string, 0)
+		for val := range ch {
+			revStr = append(revStr, val.(string))
+		}
+		expectedStr = strings.Join(revStr, "")
+
+		if actualStr == expectedStr {
+			isTrue = true
+		}
+		return isTrue
+	}
+
+	if isInt(input) {
+		num, _ := strconv.Atoi(input)
+		value := checkIntPalindrome(num)
+		if value {
+			fmt.Println("Num ", num, " is palindrome")
+		} else {
+			fmt.Println("Num ", num, " is not palindrome")
+		}
+	} else {
+		val := checkStringPalindrome(input)
+		if val {
+			fmt.Println("String ", input, " is palindrome")
+		} else {
+			fmt.Println("String ", input, " is not palindrome")
+		}
+	}
+
+}
 
 /* 22. Problem: Java Program to Expand a String with Character Counts. */
 
