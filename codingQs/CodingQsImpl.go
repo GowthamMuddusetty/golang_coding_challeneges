@@ -1,12 +1,15 @@
-package linkedin
+package codingqs
 
 import (
+	"cmp"
 	"fmt"
+	"math"
 	"math/rand"
 	"slices"
 	"sort"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 	"unicode"
 )
@@ -497,7 +500,6 @@ func (c *CodingQsService) CheckPalindrome() {
 			fmt.Println("String ", input, " is not palindrome")
 		}
 	}
-
 }
 
 /* 22. Problem:  Program to Expand a String with Character Counts. */
@@ -540,4 +542,94 @@ func (c *CodingQsService) StringExpander2() {
 	fmt.Println(expandedString)
 }
 
-func (c *CodingQsService) Inject(Lqs GolangCodingQsInterface) {}
+/* LINKED LIST DATA STRUCTURE */
+func (c *CodingQsService) LinkedListEx() {
+	type LinkedListTest struct {
+		Num  int
+		Next *LinkedListTest
+	}
+
+	head := &LinkedListTest{Num: 1}
+	current := head
+	for i := 2; i <= 10; i++ {
+		current.Next = &LinkedListTest{Num: i}
+		current = current.Next
+	}
+
+	current = head
+	for current != nil {
+		fmt.Println(current.Num)
+		current = current.Next
+	}
+}
+
+/*  MUTEX_EX */
+func (c *CodingQsService) MutexEx() {
+
+	var counter int
+	var counterMutex sync.Mutex
+	ch := make(chan string, 1)
+	increment := func() {
+		counterMutex.Lock()
+		defer counterMutex.Unlock()
+		counter++
+		if counter == 1000 {
+			ch <- "done"
+		}
+	}
+
+	// var wg sync.WaitGroup
+	for i := 0; i < 1000; i++ {
+		// wg.Add(1)
+		go func() {
+			// defer wg.Done()
+			increment()
+		}()
+
+	}
+
+	// wg.Wait()
+	<-ch
+	fmt.Println("Final counter value:", counter)
+}
+
+func (c *CodingQsService) SortEx() {
+	fruits := []string{"kiwi", "peach", "watermelon"}
+	sortByLen := func(a, b string) int {
+		return cmp.Compare(len(a), len(b))
+	}
+	slices.SortFunc(fruits, sortByLen)
+	fmt.Println(fruits)
+
+	type Person struct {
+		name string
+		age  int
+	}
+
+	people := []Person{
+		{name: "Gowtham", age: 23},
+		{name: "Jagadeesh", age: 32},
+	}
+	slices.SortFunc(people, func(a, b Person) int {
+		return cmp.Compare(a.age, b.age)
+	})
+	fmt.Println(people)
+}
+
+func (c *CodingQsService) ReverseNum(x int) int {
+	reversed := 0
+	sign := 1
+	if x < 0 {
+		sign = -1
+		x = -x
+	}
+	for x > 0 {
+		digit := x % 10
+		if reversed > math.MaxInt32/10 || (reversed == math.MaxInt32/10 && digit > 7) {
+			return 0
+		}
+		reversed = reversed*10 + digit
+		x /= 10
+	}
+	return reversed * sign
+}

@@ -1,42 +1,30 @@
 package main
 
 import (
-	linkedin "codingQuestions/linkedinCodingQs"
+	codingQs "codingquestions/codingqs"
+	"fmt"
 )
 
-func getServices() *linkedin.CodingQsService {
-	return &linkedin.CodingQsService{}
+type Resources struct {
+	CodingQs codingQs.GolangCodingQsInterface
+}
+
+func (r *Resources) Inject(CodingQs codingQs.GolangCodingQsInterface) {
+	r.CodingQs = CodingQs
+}
+
+func getServices() *codingQs.CodingQsService {
+	return &codingQs.CodingQsService{}
 }
 
 func main() {
 
-	// MUTEX -- execute below func
-	// mutex.MutexEx()
-
-	// LINKED LIST STRUCTURE -- execute below func
-	// linkedlist.LinkedList()
-
-	// ENUM -- execute below func
-	// enumex.Enum()
-
-	tempService := linkedin.CodingQsService{}
+	tempService := Resources{}
 	tempService.Inject(getServices())
-
-	// tempService.Find_Num()
-	tempService.Highest_Num()
-	// tempService.Char_Count()
-	// tempService.Extract_Char()
-	// tempService.RemDup()
-	// tempService.FirstLet()
-	// tempService.FibSeries()
-	// tempService.RFL()
-	// tempService.MinMax()
-	// tempService.FibMap()
-	// tempService.ArrSort()
-	// tempService.NonRepetetiveChars()
-	// tempService.NonRepetetiveCharsUsingMap()
-	// tempService.IndicesOfSumOf2Nums()
-	// tempService.FirstLastLetterUpperCase()
-	// tempService.CalculateMaxProfit()
-	// tempService.CheckPalindrome()
+	// tempService.CodingQs.GenRandom4Digit()
+	// tempService.CodingQs.LinkedListEx()
+	tempService.CodingQs.MutexEx()
+	tempService.CodingQs.SortEx()
+	num := tempService.CodingQs.ReverseNum(1234)
+	fmt.Println(num)
 }
