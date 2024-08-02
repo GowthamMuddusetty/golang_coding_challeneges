@@ -1,33 +1,42 @@
 package main
 
 import (
-	enumex "codingQuestions/enumEx"
 	linkedin "codingQuestions/linkedinCodingQs"
-	mutex "codingQuestions/mutexEx"
 )
+
+func getServices() *linkedin.CodingQsService {
+	return &linkedin.CodingQsService{}
+}
 
 func main() {
 
-	// linkedin.Find_Num()
-	// linkedin.Highest_Num()
-	// linkedin.Char_Count()
-	// linkedin.Extract_Char()
-	// linkedin.RemDup()
-	// linkedin.FirstLet()
-	// linkedin.FibSeries()
-	// linkedin.RFL()
-	// linkedin.MinMax()
-	// linkedin.FibMap()
-	// linkedin.ArrSort()
-	// linkedin.NonRepetetiveChars()
-	// linkedin.NonRepetetiveCharsUsingMap()
-	// linkedin.IndicesOfSumOf2Nums()
-	// linkedin.FirstLastLetterUpperCase()
-	// linkedin.CalculateMaxProfit()
-	linkedin.CheckPalindrome()
-	// MUTEX
-	mutex.MutexEx()
+	// MUTEX -- execute below func
+	// mutex.MutexEx()
 
-	// ENUM
-	enumex.Enum()
+	// LINKED LIST STRUCTURE -- execute below func
+	// linkedlist.LinkedList()
+
+	// ENUM -- execute below func
+	// enumex.Enum()
+
+	tempService := linkedin.CodingQsService{}
+	tempService.Inject(getServices())
+
+	// tempService.Find_Num()
+	tempService.Highest_Num()
+	// tempService.Char_Count()
+	// tempService.Extract_Char()
+	// tempService.RemDup()
+	// tempService.FirstLet()
+	// tempService.FibSeries()
+	// tempService.RFL()
+	// tempService.MinMax()
+	// tempService.FibMap()
+	// tempService.ArrSort()
+	// tempService.NonRepetetiveChars()
+	// tempService.NonRepetetiveCharsUsingMap()
+	// tempService.IndicesOfSumOf2Nums()
+	// tempService.FirstLastLetterUpperCase()
+	// tempService.CalculateMaxProfit()
+	// tempService.CheckPalindrome()
 }

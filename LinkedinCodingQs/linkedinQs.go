@@ -11,8 +11,12 @@ import (
 	"unicode"
 )
 
+type CodingQsService struct {
+	CodingQsInterface GolangCodingQsInterface
+}
+
 /* 1. Problem: Generating 4-digit random number */
-func GenRandom4Digit() {
+func (c *CodingQsService) GenRandom4Digit() {
 	rand.Seed(time.Now().UnixNano())
 	min := 1000
 	max := 10000
@@ -23,7 +27,7 @@ func GenRandom4Digit() {
 }
 
 /* 2. Problem: Identify the count of a letter in the sentence */
-func CountLetterOccurence(str string) string {
+func (c *CodingQsService) CountLetterOccurence(str string) string {
 	runes := []rune(strings.ToLower(str))
 	strMap := make(map[string]int)
 	for i := 0; i < len(runes); i++ {
@@ -50,7 +54,7 @@ func CountLetterOccurence(str string) string {
 }
 
 /* 4. Generate random without using math.rand function */
-func GenRandom4DigitNoRand() {
+func (c *CodingQsService) GenRandom4DigitNoRand() {
 	rand.Seed(time.Now().UnixNano())
 
 	// generate a random 8-digit ID
@@ -62,7 +66,7 @@ func GenRandom4DigitNoRand() {
 }
 
 /* 5. Problem: Finding number in an Array and ArrayList */
-func Find_Num() {
+func (c *CodingQsService) Find_Num() {
 	var nums []int
 	nums = append(nums, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 	fNums := []int{3, 7, 11}
@@ -78,7 +82,7 @@ func Find_Num() {
 }
 
 /* 6. Problem: Find out highest numbers in an Array whose adjacent right numbers are smaller */
-func Highest_Num() {
+func (c *CodingQsService) Highest_Num() {
 	var nums [6]int
 	nums[0] = 1
 	nums[1] = 2
@@ -99,7 +103,7 @@ func Highest_Num() {
 }
 
 /*7. Problem: Find a count of each character in a given String.*/
-func Char_Count() {
+func (c *CodingQsService) Char_Count() {
 	str := "Automation Testing"
 	fmt.Println(len(str))
 
@@ -122,7 +126,7 @@ func Char_Count() {
 }
 
 /* 8. Problem: Extract last 4 characters of any String.*/
-func Extract_Char() {
+func (c *CodingQsService) Extract_Char() {
 	str := "Backend Development"
 	newStr := strings.ToLower(str)
 	str = strings.ReplaceAll(newStr, " ", "")
@@ -147,7 +151,7 @@ func Extract_Char() {
 }
 
 /* 9. Problem: Program to remove duplicates from a given array. */
-func RemDup() {
+func (c *CodingQsService) RemDup() {
 	var nums = [7]int{2, 3, 5, 5, 8, 2, 3}
 	var dup = []int{}
 	for i := 0; i < len(nums); i++ {
@@ -160,7 +164,7 @@ func RemDup() {
 }
 
 /* 10. Problem: First letter of each word present in String. */
-func FirstLet() {
+func (c *CodingQsService) FirstLet() {
 	str := "It's not the load that breaks you down, it's the way you carry it."
 	words := strings.Fields(str)
 	var arrStr []string
@@ -173,7 +177,7 @@ func FirstLet() {
 }
 
 /* 11. Problem: Fibonacci Series using Arrays. */
-func FibSeries() {
+func (c *CodingQsService) FibSeries() {
 	num := 10
 	fibSer := make([]int, num)
 	fibSer[0] = 0
@@ -187,7 +191,7 @@ func FibSeries() {
 }
 
 /* 12. Problem: Program to return a new Array after removing first and last elements of an Array. */
-func RFL() {
+func (c *CodingQsService) RFL() {
 	nums := []int{11, 12, 13, 14, 15, 16}
 	nList := make([]int, 0)
 	for i, num := range nums {
@@ -201,7 +205,7 @@ func RFL() {
 }
 
 /* 13. Problem: // Minimum and Maximum element in an Array using sort method. */
-func MinMax() {
+func (c *CodingQsService) MinMax() {
 	nums := []int{7, 11, 6, 55, 98, 45, 16, 96, 46}
 	sort.Ints(nums)
 	fmt.Println(nums)
@@ -216,7 +220,7 @@ func MinMax() {
 }
 
 /* 14. Problem: Fibonacci Series using HashMap.*/
-func FibMap() {
+func (c *CodingQsService) FibMap() {
 	num := 10
 	hashmap := make(map[int]int, num)
 	hashmap[0] = 0
@@ -239,7 +243,7 @@ func FibMap() {
 }
 
 /* 15. Problem: Sorting of an Array. */
-func ArrSort() {
+func (c *CodingQsService) ArrSort() {
 	arr := []int{7, 11, 65, 98, 45, 16, 96, 6}
 	sortedArr := make([]int, len(arr))
 
@@ -262,7 +266,7 @@ func ArrSort() {
 }
 
 /* 16. Problem: Program to find non-repetitive characters in a string. */
-func NonRepetetiveChars() {
+func (c *CodingQsService) NonRepetetiveChars() {
 	str := strings.ToLower("Sunset glow on the horizon")
 	runes := []rune(str)
 	chars := make([]string, 0)
@@ -287,7 +291,7 @@ func NonRepetetiveChars() {
 }
 
 /* 17. Problem: Program to find non-repetitive characters in a string using HashMap. */
-func NonRepetetiveCharsUsingMap() {
+func (c *CodingQsService) NonRepetetiveCharsUsingMap() {
 	str := strings.ToLower("Sunset glow on the horizon")
 	noRepcharmap := make(map[string]int)
 
@@ -308,7 +312,7 @@ func NonRepetetiveCharsUsingMap() {
 }
 
 /* 18. Problem: Given an array of integers, find the indices of two numbers that add up to a specific target. Assume each input has exactly one solution, and the same element cannot be used twice. */
-func IndicesOfSumOf2Nums() {
+func (c *CodingQsService) IndicesOfSumOf2Nums() {
 	nums := []int{7, 11, 6, 55, 98, 45, 16, 96, 46, 7, 0}
 	nonRepNums := make([]int, len(nums))
 	targetSum := 22
@@ -349,7 +353,7 @@ func IndicesOfSumOf2Nums() {
 }
 
 /* 19. Problem: Program to convert the first and last letter of each word in a string to uppercase. */
-func FirstLastLetterUpperCase() {
+func (c *CodingQsService) FirstLastLetterUpperCase() {
 	str := "success is a not final, failure is not fatal: it is the courage to continue that counts."
 
 	words := strings.Split(str, " ")
@@ -378,7 +382,7 @@ func FirstLastLetterUpperCase() {
 }
 
 /* 20. Problem: Return the maximum profit by choosing a single day to buy and a different day in the future to sell. */
-func CalculateMaxProfit() {
+func (c *CodingQsService) CalculateMaxProfit() {
 	prices := []int{7, 5, 2, 3, 6, 4, 1}
 
 	profitCalFunc := func([]int) int {
@@ -411,7 +415,7 @@ func CalculateMaxProfit() {
 }
 
 /* 21. Problem: Check if the input is a palindrome. */
-func CheckPalindrome() {
+func (c *CodingQsService) CheckPalindrome() {
 	fmt.Println("Enter input :")
 	var input string
 	fmt.Scan(&input)
@@ -496,6 +500,44 @@ func CheckPalindrome() {
 
 }
 
-/* 22. Problem: Java Program to Expand a String with Character Counts. */
+/* 22. Problem:  Program to Expand a String with Character Counts. */
+func (c *CodingQsService) StringExpander() {
+	inputString := "a3.2b2@c3!2d?"
+	expandedString := ""
+	for i, s := range inputString {
+		if !unicode.IsDigit(s) {
+			expandedString = expandedString + string(s)
+			if i+1 < len(inputString) && unicode.IsDigit(rune(inputString[i+1])) {
+				num, _ := strconv.Atoi(string(inputString[i+1]))
+				for num > 1 {
+					expandedString = expandedString + string(s)
+					num--
+				}
+			}
 
-/* 23. Problem: Java Program to Expand a String. */
+		}
+	}
+	fmt.Println(expandedString)
+}
+
+/* 23. Problem:  Program to Expand a String. */
+func (c *CodingQsService) StringExpander2() {
+	inputString := "a3.2B2@c3!2d?"
+	expandedString := ""
+	for i, s := range inputString {
+		if !unicode.IsDigit(s) {
+			expandedString = expandedString + string(s)
+			if i+1 < len(inputString) && unicode.IsDigit(rune(inputString[i+1])) {
+				num, _ := strconv.Atoi(string(inputString[i+1]))
+				for num > 1 {
+					expandedString = expandedString + string(s)
+					num--
+				}
+			}
+
+		}
+	}
+	fmt.Println(expandedString)
+}
+
+func (c *CodingQsService) Inject(Lqs GolangCodingQsInterface) {}

@@ -2,7 +2,6 @@ package main
 
 import (
 	"cmp"
-	linkedin "codingQuestions/LinkedinCodingQs"
 	"fmt"
 	"slices"
 )
@@ -14,7 +13,7 @@ func main() {
 	}
 	slices.SortFunc(fruits, sortByLen)
 	fmt.Println(fruits)
-	
+
 	type Person struct {
 		name string
 		age  int
@@ -29,7 +28,7 @@ func main() {
 	})
 	fmt.Println(people)
 
-	map1 := linkedin.CountLetterOccurence("Hello")
-	fmt.Println(map1)
+	// map1 := linkedin.CountLetterOccurence("Hello")
+	// fmt.Println(map1)
 
 }
