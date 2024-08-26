@@ -2,19 +2,20 @@ package main
 
 import (
 	codingQs "codingquestions/codingqs"
-	"fmt"
 )
 
 type Resources struct {
-	CodingQs codingQs.GolangCodingQsInterface
+	CodingQs   codingQs.GolangCodingQsInterface
+	LeetCodeQs codingQs.LeetCodeQuestionsInterface
 }
 
-func (r *Resources) Inject(CodingQs codingQs.GolangCodingQsInterface) {
+func (r *Resources) Inject(CodingQs codingQs.GolangCodingQsInterface, LeetCodeQs codingQs.LeetCodeQuestionsInterface) {
 	r.CodingQs = CodingQs
+	r.LeetCodeQs = LeetCodeQs
 }
 
-func getServices() *codingQs.CodingQsService {
-	return &codingQs.CodingQsService{}
+func getServices() (*codingQs.CodingQsService, *codingQs.LeetCodeQsService) {
+	return &codingQs.CodingQsService{}, &codingQs.LeetCodeQsService{}
 }
 
 func main() {
@@ -23,8 +24,9 @@ func main() {
 	tempService.Inject(getServices())
 	// tempService.CodingQs.GenRandom4Digit()
 	// tempService.CodingQs.LinkedListEx()
-	tempService.CodingQs.MutexEx()
-	tempService.CodingQs.SortEx()
-	num := tempService.CodingQs.ReverseNum(1234)
-	fmt.Println(num)
+	// tempService.CodingQs.MutexEx()
+	// tempService.CodingQs.SortEx()
+	// num := tempService.CodingQs.ReverseNum(1234)
+	// fmt.Println(num)
+	tempService.LeetCodeQs.AddTwoNumbers()
 }

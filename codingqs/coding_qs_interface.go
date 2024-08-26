@@ -68,11 +68,17 @@ type GolangCodingQsInterface interface {
 	/* 23. Problem:  Program to Expand a String. */
 	StringExpander2()
 
+	/* max len of substring in  a string without repetation */
+	MaxLenOfSubString()
+
+	// /* divide an array in 2 diff goroutines odd a d even */
+	// DivideNumsInGo()
+
 	/* 24.  Given a signed 32-bit integer x, return x with its digits reversed.
 	If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0." */
 	ReverseNum(x int) int
 
-	// LINKEDLIST
+	/* LINKEDLIST */
 	LinkedListEx()
 
 	// MUTEX_EX
@@ -80,4 +86,13 @@ type GolangCodingQsInterface interface {
 
 	// SORT_EX
 	SortEx()
+}
+
+type LeetCodeQuestionsInterface interface {
+
+	/* 
+	You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, 
+	and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. 
+	You may assume the two numbers do not contain any leading zero, except the number 0 itself. */
+	AddTwoNumbers()
 }

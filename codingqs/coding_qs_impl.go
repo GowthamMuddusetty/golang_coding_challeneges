@@ -522,6 +522,8 @@ func (c *CodingQsService) StringExpander() {
 	fmt.Println(expandedString)
 }
 
+
+
 /* 23. Problem:  Program to Expand a String. */
 func (c *CodingQsService) StringExpander2() {
 	inputString := "a3.2B2@c3!2d?"
@@ -540,6 +542,10 @@ func (c *CodingQsService) StringExpander2() {
 		}
 	}
 	fmt.Println(expandedString)
+}
+
+func (cqs *CodingQsService) MaxLenOfSubString() {
+
 }
 
 /* LINKED LIST DATA STRUCTURE */
