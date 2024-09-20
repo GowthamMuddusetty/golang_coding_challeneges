@@ -522,8 +522,6 @@ func (c *CodingQsService) StringExpander() {
 	fmt.Println(expandedString)
 }
 
-
-
 /* 23. Problem:  Program to Expand a String. */
 func (c *CodingQsService) StringExpander2() {
 	inputString := "a3.2B2@c3!2d?"
@@ -544,8 +542,101 @@ func (c *CodingQsService) StringExpander2() {
 	fmt.Println(expandedString)
 }
 
-func (cqs *CodingQsService) MaxLenOfSubString() {
+func (c *CodingQsService) ReverseNum(x int) int {
+	reversed := 0
+	sign := 1
+	if x < 0 {
+		sign = -1
+		x = -x
+	}
+	for x > 0 {
+		digit := x % 10
+		if reversed > math.MaxInt32/10 || (reversed == math.MaxInt32/10 && digit > 7) {
+			return 0
+		}
+		reversed = reversed*10 + digit
+		x /= 10
+	}
+	return reversed * sign
+}
 
+func (cqs *CodingQsService) LongestSubStringFinder() {
+	str := "ABCD3456123stuvwdefghi"
+	subStrings := make([]string, 0)
+	subStr := ""
+	codePoints := make([]rune, 0)
+	for _, s := range str {
+		codePoints = append(codePoints, s)
+	}
+	for i, cp := range codePoints {
+		if unicode.IsLetter(cp) || unicode.IsNumber(cp) {
+			subStr += string(cp)
+			if (i+1 < len(codePoints) && codePoints[i]+1 != codePoints[i+1]) || i == len(codePoints)-1 {
+				subStrings = append(subStrings, subStr)
+				subStr = ""
+			}
+		}
+	}
+
+	findLargestString := func(subStrings []string) string {
+		largestSubNum := 0
+		largestSubString := ""
+		for _, subStr := range subStrings {
+			i := 0
+			newStr := ""
+			for _, s := range subStr {
+				i++
+				newStr += string(s)
+			}
+			if i > largestSubNum {
+				largestSubNum = i
+				largestSubString = newStr
+			}
+		}
+		return largestSubString
+	}
+
+	largestSubString := findLargestString(subStrings)
+	fmt.Println(largestSubString)
+}
+
+func (cqs *CodingQsService) LongestPalindromicSubstring() {
+	// inputString := "xyxtcbabclmn"
+	// palindromeStrings := make([]string,0)
+	// for _, c := range inputString {
+
+	// }
+}
+
+func (cqs *CodingQsService) ListOddAndEvenUsingGoroutine() {
+
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	evenNums := make([]int, 0)
+	oddNums := make([]int, 0)
+
+	go func(nums []int) {
+		for i, n := range nums {
+			if n%2 == 0 {
+				evenNums = append(evenNums, n)
+			}
+			if i == len(nums)-1 {
+				fmt.Println(evenNums)
+			}
+		}
+	}(nums)
+
+	go func(nums []int) {
+		for i, n := range nums {
+			if n%2 != 0 {
+				oddNums = append(oddNums, n)
+			}
+			if i == len(nums)-1 {
+				fmt.Println(oddNums)
+			}
+		}
+	}(nums)
+	timer := time.NewTimer(2 * time.Second)
+	<-timer.C
 }
 
 /* LINKED LIST DATA STRUCTURE */
@@ -620,22 +711,4 @@ func (c *CodingQsService) SortEx() {
 		return cmp.Compare(a.age, b.age)
 	})
 	fmt.Println(people)
-}
-
-func (c *CodingQsService) ReverseNum(x int) int {
-	reversed := 0
-	sign := 1
-	if x < 0 {
-		sign = -1
-		x = -x
-	}
-	for x > 0 {
-		digit := x % 10
-		if reversed > math.MaxInt32/10 || (reversed == math.MaxInt32/10 && digit > 7) {
-			return 0
-		}
-		reversed = reversed*10 + digit
-		x /= 10
-	}
-	return reversed * sign
 }

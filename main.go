@@ -5,17 +5,15 @@ import (
 )
 
 type Resources struct {
-	CodingQs   codingQs.GolangCodingQsInterface
-	LeetCodeQs codingQs.LeetCodeQuestionsInterface
+	CodingQs codingQs.GolangCodingQsInterface
 }
 
-func (r *Resources) Inject(CodingQs codingQs.GolangCodingQsInterface, LeetCodeQs codingQs.LeetCodeQuestionsInterface) {
+func (r *Resources) Inject(CodingQs codingQs.GolangCodingQsInterface) {
 	r.CodingQs = CodingQs
-	r.LeetCodeQs = LeetCodeQs
 }
 
-func getServices() (*codingQs.CodingQsService, *codingQs.LeetCodeQsService) {
-	return &codingQs.CodingQsService{}, &codingQs.LeetCodeQsService{}
+func getServices() *codingQs.CodingQsService {
+	return &codingQs.CodingQsService{}
 }
 
 func main() {
@@ -28,5 +26,6 @@ func main() {
 	// tempService.CodingQs.SortEx()
 	// num := tempService.CodingQs.ReverseNum(1234)
 	// fmt.Println(num)
-	tempService.LeetCodeQs.AddTwoNumbers()
+	// tempService.CodingQs.ListOddAndEvenUsingGoroutine()
+	tempService.CodingQs.LongestSubStringFinder()
 }
