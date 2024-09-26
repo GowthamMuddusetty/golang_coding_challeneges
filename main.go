@@ -28,4 +28,5 @@ func main() {
 	// fmt.Println(num)
 	// tempService.CodingQs.ListOddAndEvenUsingGoroutine()
 	tempService.CodingQs.LongestSubStringFinder()
+	tempService.CodingQs.LongestPalindromicSubstring()
 }

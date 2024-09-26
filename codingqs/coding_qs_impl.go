@@ -601,11 +601,38 @@ func (cqs *CodingQsService) LongestSubStringFinder() {
 }
 
 func (cqs *CodingQsService) LongestPalindromicSubstring() {
-	// inputString := "xyxtcbabclmn"
-	// palindromeStrings := make([]string,0)
-	// for _, c := range inputString {
+	inputString := "xyxtcbabclmn"
+	n := len(inputString)
+	if n == 0 {
+		return
+	}
+	
+	// Helper function to expand around the center
+	expandAroundCenter := func(s string, left, right int) string {
+		for left >= 0 && right < len(s) && s[left] == s[right] {
+			left--
+			right++
+		}
+		return s[left+1 : right]
+	}
 
-	// }
+	longestPalindrome := ""
+	for i := 0; i < n; i++ {
+		// Odd length palindrome (single character center)
+		palindrome1 := expandAroundCenter(inputString, i, i)
+		// Even length palindrome (two character center)
+		palindrome2 := expandAroundCenter(inputString, i, i+1)
+
+		// Choose the longer palindrome of the two
+		if len(palindrome1) > len(longestPalindrome) {
+			longestPalindrome = palindrome1
+		}
+		if len(palindrome2) > len(longestPalindrome) {
+			longestPalindrome = palindrome2
+		}
+	}
+
+	fmt.Println("Longest Palindromic Substring:", longestPalindrome)
 }
 
 func (cqs *CodingQsService) ListOddAndEvenUsingGoroutine() {
