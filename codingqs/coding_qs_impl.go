@@ -542,24 +542,6 @@ func (c *CodingQsService) StringExpander2() {
 	fmt.Println(expandedString)
 }
 
-func (c *CodingQsService) ReverseNum(x int) int {
-	reversed := 0
-	sign := 1
-	if x < 0 {
-		sign = -1
-		x = -x
-	}
-	for x > 0 {
-		digit := x % 10
-		if reversed > math.MaxInt32/10 || (reversed == math.MaxInt32/10 && digit > 7) {
-			return 0
-		}
-		reversed = reversed*10 + digit
-		x /= 10
-	}
-	return reversed * sign
-}
-
 func (cqs *CodingQsService) LongestSubStringFinder() {
 	str := "ABCD3456123stuvwdefghi"
 	subStrings := make([]string, 0)
@@ -606,7 +588,7 @@ func (cqs *CodingQsService) LongestPalindromicSubstring() {
 	if n == 0 {
 		return
 	}
-	
+
 	// Helper function to expand around the center
 	expandAroundCenter := func(s string, left, right int) string {
 		for left >= 0 && right < len(s) && s[left] == s[right] {
@@ -633,6 +615,32 @@ func (cqs *CodingQsService) LongestPalindromicSubstring() {
 	}
 
 	fmt.Println("Longest Palindromic Substring:", longestPalindrome)
+}
+
+func (cs *CodingQsService) StringReverse(str string) {
+	runes := []rune(str)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	fmt.Println(string(runes))
+}
+
+func (c *CodingQsService) ReverseNum(x int) int {
+	reversed := 0
+	sign := 1
+	if x < 0 {
+		sign = -1
+		x = -x
+	}
+	for x > 0 {
+		digit := x % 10
+		if reversed > math.MaxInt32/10 || (reversed == math.MaxInt32/10 && digit > 7) {
+			return 0
+		}
+		reversed = reversed*10 + digit
+		x /= 10
+	}
+	return reversed * sign
 }
 
 func (cqs *CodingQsService) ListOddAndEvenUsingGoroutine() {
