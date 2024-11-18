@@ -77,6 +77,12 @@ type GolangCodingQsInterface interface {
 	/* 27. Problem: ZigZag Conversion program*/
 	ZigZagConversion()
 
+	/* 28. Problem: Program for Reversing a String. */
+	StringReversal()
+
+	/* Problem: Program for extracting integers. */
+	IntegerExtraction()
+
 	/*reverse a string.*/
 	StringReverse(str string)
 
