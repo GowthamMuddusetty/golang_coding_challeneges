@@ -27,7 +27,8 @@ func main() {
 	// num := tempService.CodingQs.ReverseNum(1234)
 	// fmt.Println(num)
 	// tempService.CodingQs.ListOddAndEvenUsingGoroutine()
-	tempService.CodingQs.LongestSubStringFinder()
-	tempService.CodingQs.LongestPalindromicSubstring()
-	tempService.CodingQs.StringReverse("abcd")
+	// tempService.CodingQs.LongestSubStringFinder()
+	// tempService.CodingQs.LongestPalindromicSubstring()
+	// tempService.CodingQs.StringReverse("abcd")
+	tempService.CodingQs.ZigZagConversion()
 }

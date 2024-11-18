@@ -617,6 +617,27 @@ func (cqs *CodingQsService) LongestPalindromicSubstring() {
 	fmt.Println("Longest Palindromic Substring:", longestPalindrome)
 }
 
+func (cqs *CodingQsService) ZigZagConversion() {
+	// fmt.Println("Enter input :")
+	// var input string
+	// fmt.Scan(&input)
+	inputString := "PAYPALISHIRING"
+	fmt.Println("Input String : ", inputString)
+	runes := []rune(inputString)
+	resultStrs := ""
+	for i := 0; i < 3; i++ {
+		subStrs := ""
+		j := i
+		for j < len(runes) {
+			subStrs = subStrs + string(runes[j])
+			j = j + 3
+		}
+		resultStrs = resultStrs + subStrs
+		fmt.Printf("Row %v : %v  \n", i+1, subStrs)
+	}
+	fmt.Println("Output after zigzag conversion: ", resultStrs)
+}
+
 func (cs *CodingQsService) StringReverse(str string) {
 	runes := []rune(str)
 	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {

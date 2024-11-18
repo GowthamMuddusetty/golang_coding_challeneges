@@ -74,6 +74,9 @@ type GolangCodingQsInterface interface {
 	/* 26. Problem: Program to Find the Longest Palindromic Substring.*/
 	LongestPalindromicSubstring()
 
+	/* 27. Problem: ZigZag Conversion program*/
+	ZigZagConversion()
+
 	/*reverse a string.*/
 	StringReverse(str string)
 
