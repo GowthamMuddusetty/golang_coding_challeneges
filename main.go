@@ -30,5 +30,6 @@ func main() {
 	// tempService.CodingQs.LongestSubStringFinder()
 	// tempService.CodingQs.LongestPalindromicSubstring()
 	// tempService.CodingQs.StringReverse("abcd")
-	tempService.CodingQs.ZigZagConversion()
+	// tempService.CodingQs.ZigZagConversion()
+	codingQs.PrintDLLValues()
 }
