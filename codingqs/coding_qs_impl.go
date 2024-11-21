@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"regexp"
 	"slices"
 	"sort"
 	"strconv"
@@ -636,6 +637,37 @@ func (cqs *CodingQsService) ZigZagConversion() {
 		fmt.Printf("Row %v : %v  \n", i+1, subStrs)
 	}
 	fmt.Println("Output after zigzag conversion: ", resultStrs)
+}
+
+func (cqs *CodingQsService) StringReversal() {
+	inputString := "Sunset paints the sky beautifully."
+	runes := []rune(inputString)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	fmt.Println(string(runes))
+}
+
+func (cqs *CodingQsService) IntegerExtraction() {
+	inputString := "72 cats, X30 dogs, -100,20 points, 26 alphabets."
+
+	// Define the regular expression to match numbers (including negatives)
+	re := regexp.MustCompile(`-?\d+`)
+
+	// Find all matches in the input string
+	matches := re.FindAllString(inputString, -1)
+
+	// Convert matches to integers
+	var nums []int
+	for _, match := range matches {
+		num, err := strconv.Atoi(match)
+		if err == nil {
+			nums = append(nums, num)
+		}
+	}
+
+	// Print the result
+	fmt.Println(nums)
 }
 
 func (cs *CodingQsService) StringReverse(str string) {
