@@ -34,4 +34,6 @@ func main() {
 	// tempService.CodingQs.StringReversal()
 	// tempService.CodingQs.IntegerExtraction()
 	tempService.CodingQs.CommonPrefix()
+	tempService.CodingQs.IntegerExtraction()
+	codingQs.PrintDLLValues()
 }
