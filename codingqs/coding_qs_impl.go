@@ -670,6 +670,41 @@ func (cqs *CodingQsService) IntegerExtraction() {
 	fmt.Println(nums)
 }
 
+func (cqs *CodingQsService) CommonPrefix() {
+	words := []string{"flower", "flow", "flight"}
+
+	if len(words) == 0 {
+		fmt.Println("No common prefix")
+	}
+
+	minFunc := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
+
+	findCommonPrefix := func(str1, str2 string) string {
+		minLength := minFunc(len(str1), len(min(str2)))
+		for i := 0; i < minLength; i++ {
+			if str1[i] != str2[i] {
+				return str1[:i]
+			}
+		}
+		return str1[:minLength]
+	}
+
+	prefix := words[0]
+	for _, word := range words {
+		prefix = findCommonPrefix(prefix, word)
+		if prefix == "" {
+			break
+		}
+	}
+
+	fmt.Println("Largest common prefix: ", prefix)
+}
+
 func (cs *CodingQsService) StringReverse(str string) {
 	runes := []rune(str)
 	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {

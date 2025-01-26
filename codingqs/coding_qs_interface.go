@@ -80,8 +80,11 @@ type GolangCodingQsInterface interface {
 	/* 28. Problem: Program for Reversing a String. */
 	StringReversal()
 
-	/* Problem: Program for extracting integers. */
+	/* 29. Problem: Program for extracting integers. */
 	IntegerExtraction()
+
+	/* 30. Problem: Program to Find the Longest Common Prefix. */
+	CommonPrefix()
 
 	/*reverse a string.*/
 	StringReverse(str string)

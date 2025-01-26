@@ -32,5 +32,6 @@ func main() {
 	// tempService.CodingQs.StringReverse("abcd")
 	// tempService.CodingQs.ZigZagConversion()
 	// tempService.CodingQs.StringReversal()
-	tempService.CodingQs.IntegerExtraction()
+	// tempService.CodingQs.IntegerExtraction()
+	tempService.CodingQs.CommonPrefix()
 }
